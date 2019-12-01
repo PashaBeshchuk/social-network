@@ -1,0 +1,40 @@
+.nav{
+    grid-area: n;
+    background-color:red;
+    position: relative;
+    order:2;
+    left: 7vw;
+    top: -5vh;
+    background-image:url(./../../image/image.JPG);
+    height: 300px;
+    width: 325px;
+}
+.item a{
+    color:white;
+    text-decoration: none;
+}
+.item a.activeLink{
+    color:gold;
+}
+.avatar{
+    color:white;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100px;
+    padding:10px;
+    margin: 2px;
+}
+.avatar div {
+    padding: 0px;
+    margin:0px;
+    width: 60px;
+    
+}
+.avatar div div{
+    padding: 0px;
+    margin:0px;
+}
+.friendBlock a{
+    font-size: 40px;
+}

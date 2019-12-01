@@ -1,0 +1,6 @@
+.errorField input,
+.errorField textarea,
+.errorField span
+{
+    border: 1px solid red;
+}

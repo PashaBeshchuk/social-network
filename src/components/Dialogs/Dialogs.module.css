@@ -1,0 +1,43 @@
+.dialogs{
+ display: grid;
+ grid-template-columns: 2fr 10fr;
+}
+.dialogsItems{
+    padding: 10px;
+}
+.dialogs .dialog{
+    
+}
+.messages{
+    padding: 10px;
+    width: 500px
+}
+.messages .message{
+    border: 1px solid green;
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+.messages input{
+    width: 500px;
+    height: 50px;
+}
+.dialogsItems .active{
+    color:blueviolet;
+    
+}
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+}
+.layer{
+    overflow: scroll;
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgb(226, 201, 201);
+}
+.me{
+    padding-left: 380px;
+}
+
