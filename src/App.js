@@ -14,7 +14,7 @@ import { initAllComponent } from './redux/appReducer';
 import Preloader from './components/Common/Preloader/Preloader';
 import { withSuspense } from './hoc/withSuspense';
 import store from "./redux/reduxStore"
-import { BrowserRouter } from "react-router-dom"
+import { BrowserRouter, HashRouter } from "react-router-dom"
 import { Provider } from "react-redux"
 
 const ProfileContainer = React.lazy(()=>import("./components/Profile/ProfileContainer"))
@@ -58,10 +58,10 @@ let mapStateToProps = (state) => {
 const AppContainer = connect(mapStateToProps,{ initAllComponent })(App)
 
 const AppFirstProgect = (props) => {
-  return <BrowserRouter>
+  return <HashRouter>
     <Provider store={store}>
         <AppContainer />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 }
 export default AppFirstProgect
