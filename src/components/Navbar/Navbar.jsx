@@ -20,6 +20,12 @@ class Navbar extends React.Component {
                     <NavLink to="/dialogs" activeClassName={css.activeLink}>Messages</NavLink>
                 </div>
                 <div className={css.item}>
+                    <NavLink to="/organizer" activeClassName={css.activeLink}>Organizer</NavLink>
+                </div>
+                <div className={css.item}>
+                    <NavLink to="/games" activeClassName={css.activeLink}>Games</NavLink>
+                </div>
+                <div className={css.item}>
                     <NavLink to="/news" activeClassName={css.activeLink}>News</NavLink>
                 </div>
                 <div className={css.item}>
@@ -35,6 +41,7 @@ class Navbar extends React.Component {
                     <NavLink to="/friends" activeClassName={css.activeLink}>Friends</NavLink>
                     <div className={css.avatar}>{listFriends}</div>
                 </div>
+                
             </nav>
         )
     }
