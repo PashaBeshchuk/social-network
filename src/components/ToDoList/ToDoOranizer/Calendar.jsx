@@ -22,6 +22,8 @@ class Calendar extends React.Component {
         }
     }
     componentDidMount(){
+		console.log(this.props)
+		debugger
         this.state.listToDos = {...this.props.state.listToDos}
     }
     render(){

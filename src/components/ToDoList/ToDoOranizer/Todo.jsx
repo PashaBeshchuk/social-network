@@ -18,7 +18,7 @@ class Todo extends React.Component{
                 newTask = {this.newTask.bind(this)}
                 createTask = {this.createTask.bind(this)}
             />
-            <table>
+            <table className={css.tableForTasks}>
                 <TasksHeading />
                 <Tasks 
                     listToDos = {this.props.listToDos}

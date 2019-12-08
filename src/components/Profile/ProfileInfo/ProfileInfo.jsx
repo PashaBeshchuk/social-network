@@ -1,21 +1,56 @@
 import React, { Component } from "react"
 import css from './ProfileInfo.module.css'
-import StatusProfile from "./StatusProfile"
-
+import ProfileInfoEditerForm from "./ProfileInfoEditerForm"
+import ProfileMyInfo from "./ProfileMyInfo"
 
 class ProfileInfo extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            editStatus:false
+        }
+    }
+    
+    onSubmit(formData){
+        this.props.setNewProfileInfo(formData)
+    }
+
+    addNewPhotoForProfile(event){
+        if(event.target.files.length){
+            this.props.saveNewPhoto(event.target.files[0])
+        }
+    }
+    setEditStatus(){
+        this.setState({editStatus:!this.state.editStatus})
+        this.props.setEditingMode(true)
+    }
     render(){
         let myProfile = <div>
-             <img src="https://pics.livejournal.com/shpilenok/pic/001p0qdt" />
+            <img src="https://pics.livejournal.com/shpilenok/pic/001p0qdt" />
             <p>Бещук Павел</p>
         </div>  
             if(this.props.profile){
                 myProfile = <div>
-                    <img src={this.props.profile.photos.large} />
-                    < StatusProfile status={this.props.status} editStatus={this.props.editStatus}/>
-                    <p>Кто я: {this.props.profile.aboutMe}</p>
-                    <p>Статус работы: {this.props.profile.lookingForAJobDescription}</p>
-                    <p>Id: {this.props.profile.userId}</p>
+                    {this.props.editingMode ? <ProfileInfoEditerForm initialValues={this.props.profile} onSubmit={this.onSubmit.bind(this)} profile={this.props.profile} setEditStatus={this.setEditStatus.bind(this)}/>: 
+                    <>
+                        < ProfileMyInfo 
+                            profile={this.props.profile} 
+                            status={this.props.status} 
+                            editStatus={this.props.editStatus} 
+                            bossProfile={this.props.bossProfile}
+                            setEditStatus={this.setEditStatus.bind(this)}
+                            addNewPhotoForProfile={this.addNewPhotoForProfile.bind(this)}
+                        />
+                        <div>
+                            <b>Контакты</b>
+                            {Object.keys(this.props.profile.contacts).map((elem, key)=>{
+                                return <div key={key}>
+                                    <ProfileMyContacts title={elem} contacts={this.props.profile.contacts[elem]}/>
+                                </div>
+                            })}
+                        </div>
+                    </>
+                    }
                 </div>
             }
         return (
@@ -25,4 +60,10 @@ class ProfileInfo extends React.Component{
         )
     }
 }
+
+const ProfileMyContacts = (props) =>{
+    let contacts = !props.contacts ? "" : props.contacts
+    return `${props.title} : ${contacts}`
+}
+
 export default ProfileInfo; 

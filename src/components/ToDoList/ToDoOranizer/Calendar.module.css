@@ -4,3 +4,18 @@
 .display{
     display:none
 }
+
+table td {
+    border:1px solid white;
+    width: 15px;
+    height: 15px;
+    font-size:15px
+
+}
+.tableForTasks td{
+    width: 100px;
+    height: 20px;
+    font-size:15px;
+    border:1px solid white;
+    
+}
