@@ -2,6 +2,7 @@ import { instans } from "./instans"
 
 export const profileAPI = {
     getProfile(userId) {
+        debugger
         return instans.get(`profile/${userId}`).then(response => response.data)
     },
     getStatus(userId){

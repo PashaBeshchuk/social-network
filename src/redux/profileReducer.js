@@ -75,7 +75,9 @@ export const setEditingMode = (setEditingMode) => ({type: SET_EDITING_MODE, setE
 export const setProfileStatus = (status) => ({ type: SET_STATUS, status })
 export const getStatus = (userId) => {
     return async (dispatch) => {
+        debugger
         let response = await profileAPI.getStatus(userId)
+        debugger
         dispatch(setProfileStatus(response.data))
     }
 
@@ -83,7 +85,9 @@ export const getStatus = (userId) => {
 export const editStatus = (status) => {
     return async (dispatch) => {
         let response = await profileAPI.editStatus(status)
+        debugger
         if(response.data.resultCode === 0){
+            debugger
             dispatch(setProfileStatus(status))
         }
     }
@@ -95,7 +99,9 @@ export const setUsersProfile = (profile) => ({ type: SET_USERS, profile })
 export const setUsersPhotoSuccess = (photos) => ({ type: SET_USERS_PHOTO, photos })
 export const getProfile = (userId) => {
     return async (dispatch) => {
+        debugger
         let response = await profileAPI.getProfile(userId)
+        debugger
         dispatch(setUsersProfile(response))
     }
 }

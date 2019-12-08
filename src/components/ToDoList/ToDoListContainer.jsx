@@ -6,13 +6,11 @@ import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 
 const ToDoListContainer = (props) => {
-	debugger
     return <div>
         <ToDoList {...props} />
     </div>
 }
 let mapStateToProps = (state) => {
-	debugger
     return {
         state:state.calendar
     }
